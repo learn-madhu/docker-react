@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t madhu/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run madhu/docker-react npm run test -- --coverage
